@@ -64,8 +64,8 @@ VALUES
     ('Ana Costa', '2024-04-05T08:30:00', '2024-05-05T08:30:00', NULL, 2750.00, 'doc_ana_costa', 'boleto_ana'),
     ('Carlos Almeida', '2024-05-25T14:00:00', '2024-06-25T14:00:00', '2024-07-01T15:30:00', 1800.00, 'doc_carlos_almeida', 'boleto_carlos'),
     ('Fernanda Lima', '2024-06-12T12:00:00', '2024-07-12T12:00:00', NULL, 3300.00, 'doc_fernanda_lima', 'boleto_fernanda'),
-    ('Lucas Pereira', '2024-08-20T10:00:00', '2024-09-04T14:58:14.040', NULL, 2900.00, 'doc_lucas_pereira', 'boleto_lucas'),
-    ('Beatriz Fernandes', '2024-08-18T15:30:00', '2024-09-14T15:30:00', NULL, 2000.00, 'doc_beatriz_fernandes', 'boleto_beatriz'),
+    ('Lucas Pereira', '2024-08-20T10:00:00', DATEADD(DAY,3, GETDATE()), NULL, 2900.00, 'doc_lucas_pereira', 'boleto_lucas'),
+    ('Beatriz Fernandes', '2024-08-18T15:30:00', DATEADD(DAY,3, GETDATE()), NULL, 2000.00, 'doc_beatriz_fernandes', 'boleto_beatriz'),
     ('Roberto Souza', '2024-01-10T09:00:00', GETDATE() , NULL, 2100.00, 'doc_roberto_souza', 'boleto_roberto'),
     ('Phillipe Coutinho', '2024-01-15T09:00:00', '2024-02-15T09:00:00', '2024-03-19T10:30:00', 1300.00, 'doc_phillipe', 'boleto_coutinho'),
     ('Dimitri Payet', '2024-01-15T09:00:00', '2024-12-15T09:00:00', NULL, 1300.00, 'doc_payet', 'boleto_dimitri');
