@@ -1,4 +1,6 @@
-CREATE DATABASE uneContDB;
+create DATABASE uneContDB;
+
+GO
 
 USE uneContDB;
 
@@ -68,6 +70,15 @@ VALUES
     ('Phillipe Coutinho', '2024-01-15T09:00:00', '2024-02-15T09:00:00', '2024-03-19T10:30:00', 1300.00, 'doc_phillipe', 'boleto_coutinho'),
     ('Dimitri Payet', '2024-01-15T09:00:00', '2024-12-15T09:00:00', NULL, 1300.00, 'doc_payet', 'boleto_dimitri');
 
+INSERT INTO NOTAS_FISCAIS
+    (nome_pagador, dt_emissao, dt_cobranca, dt_pagamento, vl_nota, documento_nota, documento_boleto)
+VALUES
+    ('Marcos Silva', '2023-01-10T08:00:00', '2023-02-10T08:00:00', NULL, 1200.00, 'doc_marcos_silva', 'boleto_marcos'),
+    ('Claudia Lima', '2023-02-20T09:15:00', '2023-03-20T09:15:00', '2023-03-25T10:30:00', 1500.00, 'doc_claudia_lima', 'boleto_claudia'),
+    ('Gabriel Santos', '2023-03-15T14:00:00', '2023-04-15T14:00:00', NULL, 1800.00, 'doc_gabriel_santos', 'boleto_gabriel'),
+    ('Sofia Almeida', '2023-05-10T11:00:00', '2023-06-10T11:00:00', '2023-06-15T12:00:00', 2000.00, 'doc_sofia_almeida', 'boleto_sofia'),
+    ('Ricardo Costa', '2023-07-20T10:30:00', '2023-08-20T10:30:00', NULL, 2200.00, 'doc_ricardo_costa', 'boleto_ricardo'),
+    ('Luciana Rocha', '2023-09-05T15:00:00', '2023-10-05T15:00:00', '2023-10-10T16:00:00', 2500.00, 'doc_luciana_rocha', 'boleto_luciana');
 GO
 
 CREATE FUNCTION dbo.fn_GetNotasPorStatus(
@@ -162,7 +173,7 @@ GO
 SELECT * FROM NOTAS_FISCAIS
 
 UPDATE NOTAS_FISCAIS
-SET dt_cobranca = '2023-12-15T09:00:00.000'
+SET dt_cobranca = '2022-12-15T09:00:00.000'
 WHERE id_nota = 11
 
 GO
@@ -199,12 +210,3 @@ SELECT SUM(vl_nota) AS total_receita,
        FROM NOTAS_FISCAIS
 WHERE YEAR(dt_pagamento) = @Year
 GROUP BY MONTH(dt_pagamento)
-
-GO
-
-SELECT * FROM fn_GetInadimplenciaPorAno(2024)
-ORDER BY mes_inadimplencia
-SELECT * FROM fn_GetReceitaPorAno(2024)
-ORDER BY mes_pagamento
-
-SELECT * FROM NOTAS_FISCAIS

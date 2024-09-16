@@ -25,5 +25,7 @@ services:
     build:
       context: .
       dockerfile: TesteTecnicoTechNation.WebUI/Dockerfile
+    ports:
+    - "3060:8081"
 volumes:
   mssql_data:
